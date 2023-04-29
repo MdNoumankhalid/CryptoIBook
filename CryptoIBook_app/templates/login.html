@@ -1,0 +1,35 @@
+{% load static %}
+<html lang="en">
+<head>
+
+<div class="container-fluid py-5">
+        <div class="container">
+            <div class="row gx-5">
+
+                <div class="col-lg-12">
+                    <div class="bg-light text-center rounded p-5">
+                        <h1 class="mb-4">Login Now..!</h1>
+<form method="post">
+    {% csrf_token %}
+    <p style="color:red;text-align:center;font-size:22px;font-weight:bold">{{msg}}</p>
+<table align="center" width="300" height="200">
+  <tr>
+    <td>Username</td>
+    <td><input type="text" name="t1" required class="form-control"></td>
+  </tr>
+  <tr>
+    <td>Password</td>
+    <td><input type="password" name="t2" required class="form-control"></td>
+  </tr>
+     <tr>
+    <td></td>
+    <td><input type="submit" class="btn btn-success"></td>
+  </tr>
+</table>
+    <p align="center"><a href="{% url 'forgotpass' %}"> Forgot Password? </a> </p>
+</form>
+ </div>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crypto_coins</title>
+</head>
+<body>
+   <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row gx-5">
+
+                <div class="col-lg-12">
+                    <div class="bg-light text-center rounded p-5">
+                        <h1 class="mb-4">Product View</h1>
+<form method="post">
+    {% csrf_token %}
+    <p style="color:red;text-align:center;font-size:22px;font-weight:bold">{{msg}}</p>
+<table class="table table-stripped table-hover">
+    <thead class="table-dark">
+  <tr>
+    <th>Coin_id </th>
+    <th>name</th>
+    <th>symbol</th>
+    <th>rank</th>
+    <th>price_usd</th>
+    <th>price_btc</th>
+    <th>24h_volume_usd</th>
+    <th>market_cap_usd</th>
+    <th>available_supply</th>
+    <th>total_supply</th>
+    <th>max_supply</th>
+    <th>percent_change_1h</th>
+    <th>percent_change_24h</th>
+    <th>percent_change_7d</th>
+    <th>last_updated</th>
+      <th colspan="2">Action</th>
+  </tr>
+    </thead>
+  {% for r in details %}
+  <tr>
+    <td>{{r.Coin_id}}</td>
+    <td>{{r.name}}</td>
+    <td>{{r.symbol}}</td>
+    <td>{{r.rank}}</td>
+    <td>{{r.price_usd}}</td>
+    <td>{{r.price_btc}}</td>
+    <td>{{r.24h_volume_usd}}</td>
+    <td>{{r.market_cap_usd}}</td>
+    <td>{{r.available_supply}}</td>
+    <td>{{r.total_supply}}</td>
+    <td>{{r.max_supply}}</td>
+    <td>{{r.percent_change_1h}}</td>
+    <td>{{r.percent_change_24h}}</td>
+    <td>{{r.percent_change_24h}}</td>
+    <td>{{r.percent_change_7d}}</td>
+    <td>{{r.last_updated}}</td>
+    <td> <img src="../media/{{r.image}}" width="200" height="200"></td>
+    <td>{{r.total_stock}}</td>
+    <td><a href="{% url 'Crypto_coins' r.id %}"><i class="fa fa-trash text-success"> </i></a></td>
+      <td><a href="{% url 'Crypto_coins' r.id %}"><i class="fa fa-edit text-waring"> </i></a></td>
+  </tr>
+  {% endfor %}
+</table>
+</form>
+ </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

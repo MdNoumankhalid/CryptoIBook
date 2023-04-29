@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blockchain</title>
+</head>
+<body>
+<h1 class="mb-4">Product View</h1>
+<form method="post">
+    {% csrf_token %}
+    <p style="color:red;text-align:center;font-size:22px;font-weight:bold">{{msg}}</p>
+<table class="table table-stripped table-hover">
+    <thead class="table-dark">
+  <tr>
+    <th>cat_name </th>
+    <th>product_name</th>
+    <th>uom</th>
+    <th>quantity</th>
+    <th>price</th>
+    <th>image</th>
+    <th>total_stock</th>
+      <th colspan="2">Action</th>
+  </tr>
+    </thead>
+  {% for r in details %}
+  <tr>
+    <td>{{r.cat_name}}</td>
+    <td>{{r.product_name}}</td>
+    <td>{{r.uom}}</td>
+    <td>{{r.quantity}}</td>
+    <td>{{r.price}}</td>
+    <td> <img src="../media/{{r.image}}" width="200" height="200"></td>
+    <td>{{r.total_stock}}</td>
+    <td><a href="{% url 'product_del' r.id %}"><i class="fa fa-trash text-success"> </i></a></td>
+      <td><a href="{% url 'product_edit' r.id %}"><i class="fa fa-edit text-waring"> </i></a></td>
+  </tr>
+  {% endfor %}
+</table>
+</form>
+ </div>
+</body>
+</html>
